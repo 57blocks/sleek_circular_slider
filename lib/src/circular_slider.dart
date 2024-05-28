@@ -84,7 +84,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider>
   void didUpdateWidget(SleekCircularSlider oldWidget) {
     if (oldWidget.angle != widget.angle &&
         _currentAngle?.toStringAsFixed(4) != widget.angle.toStringAsFixed(4)) {
-      _animate();
+      // _animate();
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -214,9 +214,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider>
   }
 
   Widget _buildPainter({required Size size}) {
-    return CustomPaint(
-        foregroundPainter: _painter,
-        child: _buildChildWidget());
+    return CustomPaint(foregroundPainter: _painter, child: _buildChildWidget());
   }
 
   Widget? _buildChildWidget() {
@@ -262,7 +260,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider>
     var position = renderBox.globalToLocal(details);
     final double touchWidth = widget.appearance.progressBarWidth >= 25.0
         ? widget.appearance.progressBarWidth
-        : 40.0;
+        : 56.0;
     if (isPointAlongCircle(
         position, _painter!.center!, _painter!.radius, touchWidth)) {
       _selectedAngle = coordinatesToRadians(_painter!.center!, position);
@@ -292,7 +290,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider>
 
     final double touchWidth = widget.appearance.progressBarWidth >= 25.0
         ? widget.appearance.progressBarWidth
-        : 40.0;
+        : 56.0;
 
     if (isPointAlongCircle(
         position, _painter!.center!, _painter!.radius, touchWidth)) {
